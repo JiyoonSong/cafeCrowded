@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: cafecrowded
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+
+server:
+  error:
+    include-message: never
+    include-stacktrace: never
+    include-binding-errors: never
+    include-exception: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
+
+app:
+  crowd:
+    # A user report counts as the current crowd level only for this long.
+    report-ttl-minutes: 60
+  report:
+    same-cafe-cooldown-minutes: 10
+    max-per-hour: 20
+    hash-salt: ${REPORTER_HASH_SALT}
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173}

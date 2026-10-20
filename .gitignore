@@ -1,0 +1,30 @@
+# Secrets - never commit
+.env
+.env.*
+!.env.example
+application-local.yml
+application-local.properties
+application-*-secret.*
+*.pem
+*.key
+*.p12
+*.jks
+
+# Backend
+backend/target/
+backend/HELP.md
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+*.log
+
+# Local data
+docker/postgres/data/
